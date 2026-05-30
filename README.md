@@ -21,8 +21,8 @@ ASST (Android Security Testing Tool) is a security assessment framework for pene
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/yourusername/asst-tool.git
+git clone https://github.com/Deatsec/asst-tool.git
 cd asst-tool
 chmod +x setup.sh
 ./setup.sh
-python ransomware.py
+python DFish.py
