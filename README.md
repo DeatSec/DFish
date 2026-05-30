@@ -1,4 +1,4 @@
-# 🔐 ASST - Android Security Testing Tool
+# 🐟 DFish - Android Security Testing Tool
 
 **Version:** 2.1.0  
 **License:** MIT  
@@ -8,7 +8,7 @@
 
 ## 📌 Overview
 
-ASST (Android Security Testing Tool) is a security assessment framework for penetration testers and security researchers.
+DFish (Digital Phishing Framework) is a security assessment framework for penetration testers and security researchers.
 
 ---
 
@@ -21,8 +21,8 @@ ASST (Android Security Testing Tool) is a security assessment framework for pene
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/Deatsec/asst-tool.git
-cd asst-tool
+git clone https://github.com/username/dfish.git
+cd dfish
 chmod +x setup.sh
 ./setup.sh
-python DFish.py
+python dfish.py
