@@ -21,8 +21,8 @@ DFish (Digital Phishing Framework) is a security assessment framework for penetr
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/username/dfish.git
-cd dfish
+git clone https://github.com/DeatSec/DFish.git
+cd DFish
 chmod +x setup.sh
 ./setup.sh
-python dfish.py
+python DFish.py
