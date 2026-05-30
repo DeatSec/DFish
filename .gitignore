@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.env
+*.log
+*.tmp
+*.key
+*.pem
+*.crt
+*.p12
+*.pfx
+*.enc
+*.locked
+*.crypt
+.wiper_*
+.permission_test_*
