@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "==================================="
-echo "  ASST Tool Setup Script v2.1.0"
+echo "  DFish Setup Script v2.1.0"
 echo "==================================="
 
 # Update and install Python
