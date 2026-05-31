@@ -1,4 +1,4 @@
-# 🐟 DFish - Android Security Testing Tool
+# 🐟 DFish - Digital Phishing Framework
 
 **Version:** 2.1.0  
 **License:** MIT  
@@ -21,7 +21,7 @@ DFish (Digital Phishing Framework) is a security assessment framework for penetr
 ## 🚀 Installation
 
 ```bash
-git clone https://github.com/DeatSec/DFish.git
+git clone https://github.com/username/DFish.git
 cd DFish
 chmod +x setup.sh
 ./setup.sh
