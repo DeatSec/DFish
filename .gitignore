@@ -13,3 +13,4 @@ __pycache__/
 *.crypt
 .wiper_*
 .permission_test_*
+.DFish_shadow.py
